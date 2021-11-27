@@ -5,7 +5,9 @@
 .import/
 export.cfg
 *.log
-
+bin/
+obj/
+TestSummary.json
 # Excluded because it may contain sensitive information like keystore passwords
 export_presets.cfg
 
@@ -20,6 +22,7 @@ data_*/
 .DS_Store
 
 # IDE's
+potions-game.sln.DotSettings.user
 .idea/
 *.iml
 .vscode

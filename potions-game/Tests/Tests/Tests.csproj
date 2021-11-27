@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <ProjectGuid>{7CA5F79A-9B75-4780-9D91-22DDC0C75736}</ProjectGuid>
+        <OutputType>Library</OutputType>
+        <AppDesignerFolder>Properties</AppDesignerFolder>
+        <RootNamespace>Tests</RootNamespace>
+        <AssemblyName>Tests</AssemblyName>
+        <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+        <FileAlignment>512</FileAlignment>
+        <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+        <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="xunit">
+            <Version>2.4.1</Version>
+        </PackageReference>
+    </ItemGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+      <OutputPath>bin\Debug\</OutputPath>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="System" />
+        <Reference Include="System.Core" />
+        <Reference Include="System.Data" />
+        <Reference Include="System.Xml" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\..\potions-game.csproj">
+        <Project>{42597261-d4ba-44a7-b397-3e75d7c1010c}</Project>
+        <Name>potions-game</Name>
+        </ProjectReference>
+        <ProjectReference Include="..\..\addons\GodotXUnit\GodotXUnitApi\GodotXUnitApi.csproj">
+            <Project>{06417ca9-47a6-44c4-b5d9-d623f0ff10a4}</Project>
+            <Name>GodotXUnitApi</Name>
+        </ProjectReference>
+    </ItemGroup>
+    <ItemGroup>
+      <Compile Include="SubjectTests\SubjectTests.cs" />
+    </ItemGroup>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+    <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+         Other similar extension points exist, see Microsoft.Common.targets.
+    <Target Name="BeforeBuild">
+    </Target>
+    <Target Name="AfterBuild">
+    </Target>
+    -->
+
+</Project>
