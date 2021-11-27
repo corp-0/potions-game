@@ -31,7 +31,7 @@ SceneManager="*res://src/Core/Managers/SceneManager.tscn"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/MonoCustomResourceRegistry/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/GodotXUnit/plugin.cfg", "res://addons/MonoCustomResourceRegistry/plugin.cfg" )
 
 [input]
 

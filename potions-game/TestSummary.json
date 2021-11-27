@@ -1,0 +1,22 @@
+{
+  "$type": "GodotXUnitApi.GodotXUnitSummary, GodotXUnitApi",
+  "testsDiscovered": 0,
+  "testsExpectedToRun": 0,
+  "skipped": {
+    "$type": "System.Collections.Generic.List`1[[GodotXUnitApi.GodotXUnitTestResult, GodotXUnitApi]], mscorlib",
+    "$values": []
+  },
+  "passed": {
+    "$type": "System.Collections.Generic.List`1[[GodotXUnitApi.GodotXUnitTestResult, GodotXUnitApi]], mscorlib",
+    "$values": []
+  },
+  "failed": {
+    "$type": "System.Collections.Generic.List`1[[GodotXUnitApi.GodotXUnitTestResult, GodotXUnitApi]], mscorlib",
+    "$values": []
+  },
+  "diagnostics": {
+    "$type": "System.Collections.Generic.List`1[[GodotXUnitApi.GodotXUnitOtherDiagnostic, GodotXUnitApi]], mscorlib",
+    "$values": []
+  },
+  "completed": 0
+}

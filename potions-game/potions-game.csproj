@@ -4,4 +4,10 @@
     <RootNamespace>PotionsGame</RootNamespace>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="addons\GodotXUnit\GodotXUnitApi\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="addons\GodotXUnit\GodotXUnitApi\GodotXUnitApi.csproj" />
+  </ItemGroup>
 </Project>
