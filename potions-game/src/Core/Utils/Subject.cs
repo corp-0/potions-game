@@ -10,7 +10,7 @@ namespace PotionsGame.Core.Utils
     public class Subject<T>: IDisposable
     {
         private T value;
-        private readonly List<Action<T>> observers = new();
+        private readonly List<Action<T>> observers = new List<Action<T>>();
         
         public Subject(T defaultValue)
         {

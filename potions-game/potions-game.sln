@@ -2,6 +2,8 @@
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "potions-game", "potions-game.csproj", "{42597261-D4BA-44A7-B397-3E75D7C1010C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests\Tests.csproj", "{7CA5F79A-9B75-4780-9D91-22DDC0C75736}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 	Debug|Any CPU = Debug|Any CPU
@@ -15,5 +17,11 @@ Global
 		{42597261-D4BA-44A7-B397-3E75D7C1010C}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
 		{42597261-D4BA-44A7-B397-3E75D7C1010C}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
 		{42597261-D4BA-44A7-B397-3E75D7C1010C}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+		{7CA5F79A-9B75-4780-9D91-22DDC0C75736}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CA5F79A-9B75-4780-9D91-22DDC0C75736}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CA5F79A-9B75-4780-9D91-22DDC0C75736}.ExportDebug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CA5F79A-9B75-4780-9D91-22DDC0C75736}.ExportDebug|Any CPU.Build.0 = Debug|Any CPU
+		{7CA5F79A-9B75-4780-9D91-22DDC0C75736}.ExportRelease|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CA5F79A-9B75-4780-9D91-22DDC0C75736}.ExportRelease|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 EndGlobal
