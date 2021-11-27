@@ -11,7 +11,7 @@ namespace PotionsGame.Core.Managers
     public class SceneManager : SingletonAutoload<SceneManager>
     {
         [Export] private List<ScenePackPair> scenes = default;
-        private readonly Dictionary<ScenesDefinitions, PackedScene> scenesDict = new();
+        private readonly Dictionary<ScenesDefinitions, PackedScene> scenesDict = new Dictionary<ScenesDefinitions, PackedScene>();
         private Node game;
         private Node2D currentScene;
 
@@ -37,12 +37,13 @@ namespace PotionsGame.Core.Managers
             {
 
                 var sceneFile = scenesDict[sceneDefinitions];
-                if (sceneFile.Instance<Node2D>() is not { } sceneInstance)
+                var sceneInstance = sceneFile.InstanceOrNull<Node2D>();
+                if (sceneInstance == null)
                 {
                     throw new Exception(
                         $"Scene {sceneFile.ResourceName} is not a supported scene type! Must be a {nameof(Node2D)}");
                 }
-
+                
                 game.AddChild(sceneInstance);
                 currentScene = sceneInstance;
                 // sceneInstance.Connect("finished", this, nameof(OnSceneFinished));

@@ -34,8 +34,6 @@
         <Name>potions-game</Name>
         </ProjectReference>
         <ProjectReference Include="..\..\addons\GodotXUnit\GodotXUnitApi\GodotXUnitApi.csproj">
-            <Project>{06417ca9-47a6-44c4-b5d9-d623f0ff10a4}</Project>
-            <Name>GodotXUnitApi</Name>
         </ProjectReference>
     </ItemGroup>
     <ItemGroup>

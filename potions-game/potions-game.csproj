@@ -2,12 +2,16 @@
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework>
     <RootNamespace>PotionsGame</RootNamespace>
-    <LangVersion>latest</LangVersion>
+    <LangVersion>8</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Compile Remove="addons\GodotXUnit\GodotXUnitApi\**" />
+    <Compile Remove="Tests\**" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="addons\GodotXUnit\GodotXUnitApi\GodotXUnitApi.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="Tests\**" />
   </ItemGroup>
 </Project>

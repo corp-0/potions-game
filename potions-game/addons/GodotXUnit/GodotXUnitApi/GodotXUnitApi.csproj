@@ -9,7 +9,7 @@
         <AppDesignerFolder>Properties</AppDesignerFolder>
         <RootNamespace>GodotXUnitApi</RootNamespace>
         <AssemblyName>GodotXUnitApi</AssemblyName>
-        <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+        <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
         <LangVersion>8</LangVersion>
     </PropertyGroup>
@@ -67,17 +67,6 @@
       <PackageReference Include="xunit.runner.utility">
         <Version>2.4.1</Version>
       </PackageReference>
-    </ItemGroup>
-    <ItemGroup>
-      <COMReference Include="System">
-        <Guid>{BEE4BFEC-6683-3E67-9167-3C0CBC68F40A}</Guid>
-        <VersionMajor>2</VersionMajor>
-        <VersionMinor>4</VersionMinor>
-        <Lcid>0</Lcid>
-        <WrapperTool>tlbimp</WrapperTool>
-        <Isolated>False</Isolated>
-        <EmbedInteropTypes>True</EmbedInteropTypes>
-      </COMReference>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

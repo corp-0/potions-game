@@ -11,7 +11,7 @@ namespace PotionsGame.Player
     {
         private Vector2 aimingDirection;
         private Sprite crosshair;
-        public Subject<bool> IsAiming = new(false);
+        public Subject<bool> IsAiming = new Subject<bool>(false);
         private bool isAiming;
         
         public override void _PhysicsProcess(float delta)

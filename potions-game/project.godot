@@ -12,6 +12,10 @@ _global_script_classes=[  ]
 _global_script_class_icons={
 }
 
+[GodotXUnit]
+
+target_assembly="Tests"
+
 [MonoCustomResourceRegistry]
 
 ClassPrefix=""

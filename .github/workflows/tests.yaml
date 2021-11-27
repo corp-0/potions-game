@@ -1,0 +1,51 @@
+﻿name: Tests
+defaults:
+  run:
+    working-directory: potions-game
+
+on: 
+  push: {}
+  pull_request_target: {}
+    
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+    container:
+      image: barichello/godot-ci:mono-3.4
+    steps:
+      - uses: actions/checkout@v2
+      - name: restoring packages
+        run: |
+          nuget restore
+          nuget restore ./addons/GodotXUnit/GodotXUnitApi/GodotXUnitApi.csproj
+
+      - name: copying mono assemblies
+        run: |
+          mkdir -p .mono/assemblies/Debug
+          cp /usr/local/bin/GodotSharp/Api/Release/* .mono/assemblies/Debug
+
+      - name: building the project    
+        run: msbuild ./Tests/Tests/Tests.csproj
+
+      - name: configure tests
+        run: |
+          cat > override.cfg <<EOL
+          [GodotXUnit]
+          target_assembly="Tests"
+          target_assembly_custom=""
+          target_class=""
+          target_method=""
+          results_summary="res://TestSummary.json"
+          EOL
+      - name: run tests
+        timeout-minutes: 1
+        run: |
+          godot res://addons/GodotXUnit/runner/GodotTestRunnerScene.tscn
+          
+      - name: Show Test Results
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: TestSummary
+          path: potions-game/TestSummary.json
+        
