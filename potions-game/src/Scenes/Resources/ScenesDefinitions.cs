@@ -4,6 +4,7 @@
     {
         MainMenu,
         World,
+        World2,
         GameOver
     }
 }

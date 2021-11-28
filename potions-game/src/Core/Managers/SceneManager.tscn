@@ -1,14 +1,20 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/Core/Managers/SceneManager.cs" type="Script" id=1]
 [ext_resource path="res://src/Scenes/Resources/ScenePackPair.cs" type="Script" id=2]
 [ext_resource path="res://src/Scenes/World.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Scenes/World2.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 2 )
 SceneDefinition = 1
 SceneFile = ExtResource( 3 )
 
+[sub_resource type="Resource" id=2]
+script = ExtResource( 2 )
+SceneDefinition = 2
+SceneFile = ExtResource( 4 )
+
 [node name="SceneManager" type="Node"]
 script = ExtResource( 1 )
-scenes = [ SubResource( 1 ) ]
+scenes = [ SubResource( 1 ), SubResource( 2 ) ]

@@ -5,3 +5,13 @@
 [node name="Game" type="Node"]
 script = ExtResource( 1 )
 mainScene = 1
+
+[node name="Label" type="Label" parent="."]
+margin_left = 262.0
+margin_top = 17.0
+margin_right = 306.0
+margin_bottom = 31.0
+text = "World"
+__meta__ = {
+"_edit_use_anchors_": false
+}
