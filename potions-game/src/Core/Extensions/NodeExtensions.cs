@@ -17,5 +17,19 @@ namespace PotionsGame.Core.Extensions
             var children = node.GetChildren();
             return children.OfType<T>().Select(child => child as T).FirstOrDefault();
         }
+        
+        public static void Disable(this Node2D node)
+        {
+            node.SetProcess(false);
+            node.SetProcessInput(false);
+            node.Visible = false;
+        }
+        
+        public static void Enable(this Node2D node)
+        {
+            node.SetProcess(true);
+            node.SetProcessInput(true);
+            node.Visible = true;
+        }
     }
 }
