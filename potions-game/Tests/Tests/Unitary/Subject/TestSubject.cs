@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Text;
-using PotionsGame.Core.Utils;
 using GodotXUnitApi;
+using PotionsGame.Core.Utils;
 using Xunit;
-using Xunit.Sdk;
 
-namespace Tests.SubjectTests
+namespace Tests.Unitary.Subject
 {
-    public class SubjectTests
+    public class TestSubject
     {
         [GodotFact]
         public void Subject_Should_Be_Generic_And_Work_With_More_Than_One_Type()

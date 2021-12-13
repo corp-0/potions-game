@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Godot;
 using MonoCustomResourceRegistry;
-using PotionsGame.Core.Extensions;
+using PotionsGame.Core.Mapping;
 using PotionsGame.Core.Utils;
 using PotionsGame.Scenes.Resources;
 
@@ -12,61 +12,62 @@ namespace PotionsGame.Core.Managers
     public class SceneManager : SingletonAutoload<SceneManager>
     {
         [Export] private List<ScenePackPair> scenes = default;
-        private readonly Dictionary<ScenesDefinitions, PackedScene> scenesDict = new Dictionary<ScenesDefinitions, PackedScene>();
-        private readonly Dictionary<ScenesDefinitions, Node2D> scenesInstances = new Dictionary<ScenesDefinitions, Node2D>();
         private Node game;
-        private Node2D currentScene;
+        public Map CurrentMapNode { get; private set; }
+
+        public Maps CurrentMap { get; private set; }
+
+        public Dictionary<Maps, PackedScene> DefinedScenes { get; } = new Dictionary<Maps, PackedScene>();
+
+        public Dictionary<Maps, Map> InstancedMaps { get; } = new Dictionary<Maps, Map>();
         
-        public string CurrentSceneName => currentScene?.Name;
-
-
         private void InitializeScenesDictionary()
         {
             foreach (var scenePackPair in scenes)
             {
-                scenesDict.Add(scenePackPair.SceneDefinition, scenePackPair.SceneFile);
+                DefinedScenes.Add(scenePackPair.SceneDefinition, scenePackPair.SceneFile);
             }
         }
-
-
+        
         public override void AfterInit()
         {
             game = GetTree().CurrentScene;
             InitializeScenesDictionary();
         }
 
-        public void ChangeScene(ScenesDefinitions defintion)
+        public void TravelToMap(Maps definition)
         {
-            Node2D targetScene;
+            Map targetScene;
             
-            if (!scenesInstances.ContainsKey(defintion))
+            if (!InstancedMaps.ContainsKey(definition))
             {
-                targetScene = InstanceScene(defintion);
+                targetScene = InstanceScene(definition);
                 game.AddChild(targetScene);
 
-                currentScene?.Disable();
+                CurrentMapNode?.Disable();
             }
             else
             {
-                targetScene = scenesInstances[defintion];
+                targetScene = InstancedMaps[definition];
                 targetScene.Enable();
             }
             
-            currentScene?.Disable();
-            currentScene = targetScene;
+            CurrentMapNode?.Disable();
+            CurrentMap = definition;
+            CurrentMapNode = targetScene;
         }
         
-        private Node2D InstanceScene(ScenesDefinitions definition)
+        private Map InstanceScene(Maps definition)
         {
-            var sceneFile = scenesDict[definition];
-            var instance = sceneFile.InstanceOrNull<Node2D>();
+            var sceneFile = DefinedScenes[definition];
+            var instance = sceneFile.InstanceOrNull<Map>();
             if (instance == null)
             {
                 throw new Exception(
-                    $"Scene {sceneFile.ResourceName} is not a supported scene type! Must be a {nameof(Node2D)}");
+                    $"Scene {sceneFile.ResourceName} is not a supported scene type! Must be a {nameof(Map)}");
             }
             
-            scenesInstances.Add(definition, instance);
+            InstancedMaps.Add(definition, instance);
 
             return instance;
         }

@@ -1,36 +1,46 @@
-using System;
 using Godot;
-using PotionsGame.Core.Extensions;
 using PotionsGame.Core.Managers;
-using PotionsGame.Scenes.Resources;
+using PotionsGame.Core.Mapping;
+using PotionsGame.Core.Utils;
 
 namespace PotionsGame.Core
 {
     public class Game : Node
     {
-        [Export] private ScenesDefinitions mainScene = default;
-        private Label sceneLabel;
+        [Export] private bool debug = false;
+        [Export] private Maps mainScene = default;
 
         public override void _Ready()
         {
-            sceneLabel = this.GetNodeByTypeOrNull<Label>();
-            SceneManager.Instance.ChangeScene(mainScene);
-        }
-
-        public override void _Input(InputEvent @event)
-        {
-            var changeTo = SceneManager.Instance.CurrentSceneName == "World"
-                ? ScenesDefinitions.World2
-                : ScenesDefinitions.World;
-            if (Input.IsActionJustPressed("ui_accept"))
+            SceneManager.Instance.TravelToMap(mainScene);
+            if (debug)
             {
-                SceneManager.Instance.ChangeScene(changeTo);
+                Logger.Instance.Info(nameof(Game), "Running in debug mode, all debug info will be shown");
+            }
+        }
+        
+        public override void _Process(float delta)
+        {
+            if (!debug) return;
+
+            foreach (var c in GetTree().Root.GetChildren())
+            {
+                RecursiveShowDebugInfo(c);
             }
         }
 
-        public override void _Process(float delta)
+        private void RecursiveShowDebugInfo(object node)
         {
-            sceneLabel.Text = $"Current scene: {SceneManager.Instance.CurrentSceneName}";
+            if (node is IDisplayDebuggeable { DisplayDebug: true } debuggeable)
+            {
+                debuggeable.DisplayDebugInfo();
+            }
+
+            if (!(node is Node n) || n.GetChildCount() <= 0) return;
+            foreach (var child in n.GetChildren())
+            {
+                RecursiveShowDebugInfo(child);
+            }
         }
     }
 }

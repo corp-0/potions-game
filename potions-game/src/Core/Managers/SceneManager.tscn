@@ -7,12 +7,12 @@
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 2 )
-SceneDefinition = 1
+SceneDefinition = 0
 SceneFile = ExtResource( 3 )
 
 [sub_resource type="Resource" id=2]
 script = ExtResource( 2 )
-SceneDefinition = 2
+SceneDefinition = 1
 SceneFile = ExtResource( 4 )
 
 [node name="SceneManager" type="Node"]

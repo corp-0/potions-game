@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/Player/UI/InventoryEntry.cs" type="Script" id=2]
+[ext_resource path="res://assets/Textures/PlaceHolders/colored_transparent_packed.png" type="Texture" id=3]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 3 )
+region = Rect2( 624, 224, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 3 )
+region = Rect2( 624, 224, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 3 )
+region = Rect2( 624, 240, 16, 16 )
+
+[node name="InventorySlot" type="TextureRect"]
+margin_right = 64.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+texture = SubResource( 1 )
+expand = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+inventoryTexture = SubResource( 2 )
+selectedTexture = SubResource( 3 )
+
+[node name="ItemIcon" type="TextureRect" parent="."]
+margin_right = 64.0
+margin_bottom = 64.0
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using Godot;
 
@@ -17,19 +18,27 @@ namespace PotionsGame.Core.Extensions
             var children = node.GetChildren();
             return children.OfType<T>().Select(child => child as T).FirstOrDefault();
         }
-        
-        public static void Disable(this Node2D node)
+
+        public static void RemoveAllChidlren(this Node node)
         {
-            node.SetProcess(false);
-            node.SetProcessInput(false);
-            node.Visible = false;
+            foreach (var child in node.GetChildren())
+            {
+                if (child is Node typed)
+                {
+                    node.RemoveChild(typed);
+                }
+            }
         }
         
-        public static void Enable(this Node2D node)
+        public static void DestroyAllChidlren(this Node node)
         {
-            node.SetProcess(true);
-            node.SetProcessInput(true);
-            node.Visible = true;
+            foreach (var child in node.GetChildren())
+            {
+                if (child is Node typed)
+                {
+                    typed.QueueFree();
+                }
+            }
         }
     }
 }

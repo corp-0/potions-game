@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/rock_test_tile1.png-18577a160fc8e635149013bdda06b6f2.stex"
+path="res://.import/map.png-8f060757bd2ef21ca1f86621fe5a3446.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Tiles/rock_test_tile1.png"
-dest_files=[ "res://.import/rock_test_tile1.png-18577a160fc8e635149013bdda06b6f2.stex" ]
+source_file="res://assets/Textures/Types Icons/map.png"
+dest_files=[ "res://.import/map.png-8f060757bd2ef21ca1f86621fe5a3446.stex" ]
 
 [params]
 

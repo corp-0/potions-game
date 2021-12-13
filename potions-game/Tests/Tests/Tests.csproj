@@ -23,6 +23,9 @@
       <OutputPath>bin\Debug\</OutputPath>
     </PropertyGroup>
     <ItemGroup>
+        <Reference Include="GodotSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+          <HintPath>..\..\.mono\assemblies\Debug\GodotSharp.dll</HintPath>
+        </Reference>
         <Reference Include="System" />
         <Reference Include="System.Core" />
         <Reference Include="System.Data" />
@@ -37,7 +40,11 @@
         </ProjectReference>
     </ItemGroup>
     <ItemGroup>
-      <Compile Include="SubjectTests\SubjectTests.cs" />
+      <Compile Include="Integration\Inventory\TestInventory.cs" />
+      <Compile Include="Integration\Map\TestMap.cs" />
+      <Compile Include="Integration\SceneManager\TestSceneManager.cs" />
+      <Compile Include="Integration\SingletonAutoLoad\TestSingletonAutoload.cs" />
+      <Compile Include="Unitary\Subject\TestSubject.cs" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

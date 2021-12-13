@@ -1,24 +1,29 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/Player/PlayerMovement.cs" type="Script" id=1]
-[ext_resource path="res://assets/icon.png" type="Texture" id=2]
 [ext_resource path="res://src/Player/PlayerAiming.cs" type="Script" id=3]
 [ext_resource path="res://src/Player/PlayerPickUp.cs" type="Script" id=4]
+[ext_resource path="res://assets/Textures/PlaceHolders/colored_transparent_packed.png" type="Texture" id=5]
 
-[sub_resource type="CircleShape2D" id=1]
-radius = 24.0208
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 24.5, 10.5 )
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 81.6333
 
 [node name="Player" type="KinematicBody2D"]
+collision/safe_margin = 1.0
 
 [node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 2 )
+modulate = Color( 0.466667, 0.486275, 1, 1 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 384, 32, 16, 16 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-modulate = Color( 0.929412, 0.0666667, 0.0666667, 1 )
-shape = SubResource( 1 )
+position = Vector2( -0.5, 17.5 )
+shape = SubResource( 3 )
 
 [node name="PlayerMovement" type="Node" parent="."]
 script = ExtResource( 1 )
@@ -28,8 +33,9 @@ script = ExtResource( 3 )
 
 [node name="Icon" type="Sprite" parent="PlayerAiming"]
 position = Vector2( 79, -1.19209e-07 )
-scale = Vector2( 0.109375, 0.109375 )
-texture = ExtResource( 2 )
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 672, 208, 16, 16 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -37,8 +43,21 @@ smoothing_speed = 10.0
 
 [node name="PlayerPickUp" type="Node2D" parent="."]
 script = ExtResource( 4 )
+DisplayDebug = true
 
 [node name="Area2D" type="Area2D" parent="PlayerPickUp"]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerPickUp/Area2D"]
 shape = SubResource( 2 )
+
+[node name="Label" type="Label" parent="PlayerPickUp"]
+margin_left = -20.0
+margin_top = 35.0
+margin_right = 20.0
+margin_bottom = 49.0
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

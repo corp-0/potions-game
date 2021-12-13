@@ -1,5 +1,6 @@
 ﻿using Godot;
 using MonoCustomResourceRegistry;
+using PotionsGame.Core.Mapping;
 
 namespace PotionsGame.Scenes.Resources
 {
@@ -7,7 +8,7 @@ namespace PotionsGame.Scenes.Resources
     public class ScenePackPair: Resource
     {
         
-        [Export] public ScenesDefinitions SceneDefinition;
+        [Export] public Maps SceneDefinition;
         [Export] public PackedScene SceneFile;
         
     }
